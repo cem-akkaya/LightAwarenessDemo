@@ -19,6 +19,12 @@ If you have suggestions, questions or need help to use you can always contact [m
 
 If you want to contribute, feel free to create a pull request.
 
+## Usage
+1- Download prject from Git and Generate Project files.\
+2- Open your IDE and  Build project. If you are building from UProject you can get a plugin error. Just disable it and build.\
+3- Open project and make sure the LightAwareness Plugin is enabled.\
+4- PIE and test in editor.
+
 ## In Project
 
 You can find all the logic in the default BP_ThirdPersonCharacter
