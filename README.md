@@ -36,8 +36,7 @@ Project Demo Video
 
 Plugin Demos
 
-<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="330"/>
-<img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="330"/>
+<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="330"/><img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="330"/>
 
 ## License
 
