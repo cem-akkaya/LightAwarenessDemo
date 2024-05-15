@@ -404,7 +404,7 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 		{ "Category", "Light Awareness" },
 		{ "ClampMax", "1" },
 		{ "ClampMin", "0" },
-		{ "DisplayName", "Light Threshold" },
+		{ "DisplayName", "Light Global Threshold" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 		{ "UIMax", "1" },
 		{ "UIMin", "0" },
@@ -553,10 +553,10 @@ struct Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Sourc
 		{ FLightAwarenessDetectionMethod_StaticEnum, TEXT("FLightAwarenessDetectionMethod"), &Z_Registration_Info_UEnum_FLightAwarenessDetectionMethod, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 266150218U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 796621213U) },
+		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 4205756154U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_1108604745(TEXT("/Script/LightAwareness"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_2326840260(TEXT("/Script/LightAwareness"),
 	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::EnumInfo));

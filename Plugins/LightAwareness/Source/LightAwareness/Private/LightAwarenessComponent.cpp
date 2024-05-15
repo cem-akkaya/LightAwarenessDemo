@@ -18,7 +18,8 @@ ULightAwarenessComponent::ULightAwarenessComponent()
 	// Component Settings
 	PrimaryComponentTick.bCanEverTick = true;
 	UActorComponent::SetAutoActivate(true);
-	SetIsReplicatedByDefault(true);
+	SetIsReplicatedByDefault(false);
+	SetIsReplicated(false);
 	
 	// Component Add Tag
 	this->ComponentTags.Add(FName("LightAwarenessResponder"));

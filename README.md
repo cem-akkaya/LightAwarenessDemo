@@ -19,10 +19,11 @@ If you have suggestions, questions or need help to use you can always contact [m
 
 If you want to contribute, feel free to create a pull request.
 
-## Examples
+## In Project
 
-Some passages defined with various light sources and and dark zones:\
-<img src="https://cemakkaya.com/ImageHost/example1.gif" alt="Animated GIF" width="200"/>
+You can find all the logic in the default BP_ThirdPersonCharacter
+<img src="https://cemakkaya.com/ImageHost/LightAwarenessDemoGraph.jpg" alt="Animated GIF" width="100%"/>
+
 <img src="https://cemakkaya.com/ImageHost/example2.gif" alt="Animated GIF" width="200"/>
 <img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="200"/>
 <img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="200"/>

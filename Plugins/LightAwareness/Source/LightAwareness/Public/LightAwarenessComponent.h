@@ -61,7 +61,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Light Awareness" , DisplayName="Replicate Render Targets")
 	bool LightAwarenessIsReplicatedRenderTargets;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Light Awareness" , DisplayName="Light Threshold", meta = (ClampMin = "0", ClampMax = "1", UIMin = "0", UIMax = "1"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Light Awareness" , DisplayName="Light Global Threshold", meta = (ClampMin = "0", ClampMax = "1", UIMin = "0", UIMax = "1"))
 	float LightAwarenessMaterialSensitivity = 1;
 	
 	UFUNCTION(CallInEditor, Category="Light Awareness" , DisplayName="Hide Light Detector")
@@ -73,10 +73,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Light Awareness" , DisplayName="Get Light Status")
 	float GetLightStatus();
 
-	UFUNCTION(BlueprintCallable, Category="Light Awareness" , DisplayName="Get Light Buffer")
+	UFUNCTION(BlueprintCallable, Category ="Light Awareness" , DisplayName="Get Light Buffer")
 	TArray<FColor> GetBufferPixels();
 	
-	UFUNCTION(BlueprintCallable, Category="Light Awareness" , DisplayName="Set Light Sensivity")
+	UFUNCTION(BlueprintCallable, Category ="Light Awareness" , DisplayName="Set Light Sensivity")
 	void SetLightSensitivity(FLightAwarenessSensitivity Sensitivity);
 
 protected:
