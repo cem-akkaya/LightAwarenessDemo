@@ -1,4 +1,4 @@
-# # Light Awareness Plugin - Demo Project UE5
+#  Light Awareness Plugin - Demo Project UE5
 
 <img src="https://cemakkaya.com/ImageHost/splash.jpg" alt="plugin-light-awareness" width="100%"/>
 
@@ -22,11 +22,18 @@ If you want to contribute, feel free to create a pull request.
 ## In Project
 
 You can find all the logic in the default BP_ThirdPersonCharacter
-<img src="https://cemakkaya.com/ImageHost/LightAwarenessDemoGraph.jpg" alt="Animated GIF" width="100%"/>
 
-<img src="https://cemakkaya.com/ImageHost/example2.gif" alt="Animated GIF" width="200"/>
-<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="200"/>
-<img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="200"/>
+<img src="https://cemakkaya.com/ImageHost/howto.jpg" alt="Demo Image" width="100%"/>
+
+Test Level Widgets and Networking
+
+<img src="https://cemakkaya.com/ImageHost/howto1.jpg" alt="Demo Image" width="49%"/>
+<img src="https://cemakkaya.com/ImageHost/howto1.jpg" alt="Demo Image" width="50%"/>
+
+Plugin Demos
+
+<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="49%"/>
+<img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="49%"/>
 
 ## License
 
