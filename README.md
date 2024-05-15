@@ -34,9 +34,6 @@ Project Demo Video
 [This Link](https://cemakkaya.com/ImageHost/LightAwarenessDemo.webm)
 <video width="100%" height="100%" controls><source src="https://cemakkaya.com/ImageHost/LightAwarenessDemo.webm" type="video/webm"></video>
 
-<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="410"/>
-<img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="410"/>
-
 ## License
 
 This plugin demo is under [MIT license](LICENSE).
