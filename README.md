@@ -27,8 +27,8 @@ You can find all the logic in the default BP_ThirdPersonCharacter
 
 Test Level Widgets and Networking
 
-<img src="https://cemakkaya.com/ImageHost/howto1.jpg" alt="Demo Image" width="330"/>
-<img src="https://cemakkaya.com/ImageHost/howto2.jpg" alt="Demo Image" width="330"/>
+<img src="https://cemakkaya.com/ImageHost/howto1.jpg" alt="Demo Image" width="100%"/>
+<img src="https://cemakkaya.com/ImageHost/howto2.jpg" alt="Demo Image" width="100%"/>
 
 Project Demo Video
 [This Link](https://cemakkaya.com/ImageHost/LightAwarenessDemo.webm)
@@ -36,7 +36,8 @@ Project Demo Video
 
 Plugin Demos
 
-<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="330"/><img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="330"/>
+<img src="https://cemakkaya.com/ImageHost/example3.gif" alt="Animated GIF" width="410"/>
+<img src="https://cemakkaya.com/ImageHost/example4.gif" alt="Animated GIF" width="410"/>
 
 ## License
 
