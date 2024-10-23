@@ -30,6 +30,11 @@
 /LightAwareness/Intermediate
 # /Plugin #
 
+# Plugin #
+/Binaries/
+/Intermediate/
+# /Plugin #
+
 #################################
 # Visual Studio Generated Files #
 #################################
