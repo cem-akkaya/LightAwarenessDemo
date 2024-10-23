@@ -37,6 +37,9 @@
 /FUNCTIONPADMIN:6
 "D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Module.LightAwareness.cpp.obj"
+"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwareness.cpp.obj"
+"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwareness.init.gen.cpp.obj"
+"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.gen.cpp.obj"
 "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
