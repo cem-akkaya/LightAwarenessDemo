@@ -1,11 +1,13 @@
 "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\UnrealEditor\Inc\LightAwareness\UHT\LightAwarenessComponent.gen.cpp"
-/FI"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h"
 /FI"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Definitions.LightAwareness.h"
-/Yu"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Yu"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h"
+/Fp"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.pch"
 /Fo"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.gen.cpp.obj"
+/experimental:log "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.gen.cpp.sarif"
 /sourceDependencies "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.gen.cpp.dep.json"
 @"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwareness.Shared.rsp"
+/d2ssa-cfg-question-
 /Zc:inline
 /nologo
 /Oi

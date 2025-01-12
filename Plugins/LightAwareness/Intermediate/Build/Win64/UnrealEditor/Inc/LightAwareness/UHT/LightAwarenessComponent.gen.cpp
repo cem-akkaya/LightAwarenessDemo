@@ -18,8 +18,10 @@ ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 LIGHTAWARENESS_API UClass* Z_Construct_UClass_ULightAwarenessComponent();
 LIGHTAWARENESS_API UClass* Z_Construct_UClass_ULightAwarenessComponent_NoRegister();
 LIGHTAWARENESS_API UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessDetectionMethod();
+LIGHTAWARENESS_API UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod();
 LIGHTAWARENESS_API UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessSensitivity();
 LIGHTAWARENESS_API UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessState();
+LIGHTAWARENESS_API UFunction* Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature();
 UPackage* Z_Construct_UPackage__Script_LightAwareness();
 // End Cross Module References
 
@@ -137,6 +139,63 @@ UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessDetectionMethod()
 }
 // End Enum ELightAwarenessDetectionMethod
 
+// Begin Enum ELightAwarenessGetMethod
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_ELightAwarenessGetMethod;
+static UEnum* ELightAwarenessGetMethod_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_ELightAwarenessGetMethod.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_ELightAwarenessGetMethod.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod, (UObject*)Z_Construct_UPackage__Script_LightAwareness(), TEXT("ELightAwarenessGetMethod"));
+	}
+	return Z_Registration_Info_UEnum_ELightAwarenessGetMethod.OuterSingleton;
+}
+template<> LIGHTAWARENESS_API UEnum* StaticEnum<ELightAwarenessGetMethod>()
+{
+	return ELightAwarenessGetMethod_StaticEnum();
+}
+struct Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Distance.DisplayName", "Update With Delta Distance" },
+		{ "Distance.Name", "ELightAwarenessGetMethod::Distance" },
+		{ "EveryFrame.DisplayName", "Update Every Tick" },
+		{ "EveryFrame.Name", "ELightAwarenessGetMethod::EveryFrame" },
+		{ "Manuel.DisplayName", "Manually Request / None" },
+		{ "Manuel.Name", "ELightAwarenessGetMethod::Manuel" },
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "ELightAwarenessGetMethod::Manuel", (int64)ELightAwarenessGetMethod::Manuel },
+		{ "ELightAwarenessGetMethod::Distance", (int64)ELightAwarenessGetMethod::Distance },
+		{ "ELightAwarenessGetMethod::EveryFrame", (int64)ELightAwarenessGetMethod::EveryFrame },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_LightAwareness,
+	nullptr,
+	"ELightAwarenessGetMethod",
+	"ELightAwarenessGetMethod",
+	Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::Enum_MetaDataParams), Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod()
+{
+	if (!Z_Registration_Info_UEnum_ELightAwarenessGetMethod.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ELightAwarenessGetMethod.InnerSingleton, Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_ELightAwarenessGetMethod.InnerSingleton;
+}
+// End Enum ELightAwarenessGetMethod
+
 // Begin Enum ELightAwarenessState
 static FEnumRegistrationInfo Z_Registration_Info_UEnum_ELightAwarenessState;
 static UEnum* ELightAwarenessState_StaticEnum()
@@ -193,6 +252,50 @@ UEnum* Z_Construct_UEnum_LightAwareness_ELightAwarenessState()
 	return Z_Registration_Info_UEnum_ELightAwarenessState.InnerSingleton;
 }
 // End Enum ELightAwarenessState
+
+// Begin Delegate FOnLightAwarenessComponentUpdated
+struct Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics
+{
+	struct _Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms
+	{
+		float CurrentLightValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentLightValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::NewProp_CurrentLightValue = { "CurrentLightValue", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms, CurrentLightValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::NewProp_CurrentLightValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_LightAwareness, nullptr, "OnLightAwarenessComponentUpdated__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::_Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::_Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms) < MAX_uint16);
+UFunction* Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+void FOnLightAwarenessComponentUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnLightAwarenessComponentUpdated, float CurrentLightValue)
+{
+	struct _Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms
+	{
+		float CurrentLightValue;
+	};
+	_Script_LightAwareness_eventOnLightAwarenessComponentUpdated_Parms Parms;
+	Parms.CurrentLightValue=CurrentLightValue;
+	OnLightAwarenessComponentUpdated.ProcessMulticastDelegate<UObject>(&Parms);
+}
+// End Delegate FOnLightAwarenessComponentUpdated
 
 // Begin Class ULightAwarenessComponent Function GetBufferPixels
 struct Z_Construct_UFunction_ULightAwarenessComponent_GetBufferPixels_Statics
@@ -283,6 +386,37 @@ DEFINE_FUNCTION(ULightAwarenessComponent::execGetLightStatus)
 }
 // End Class ULightAwarenessComponent Function GetLightStatus
 
+// Begin Class ULightAwarenessComponent Function GetLightStatusDeferred
+struct Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Light Awareness" },
+		{ "DisplayName", "Get Light Status" },
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULightAwarenessComponent, nullptr, "GetLightStatusDeferred", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred_Statics::Function_MetaDataParams), Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ULightAwarenessComponent::execGetLightStatusDeferred)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->GetLightStatusDeferred();
+	P_NATIVE_END;
+}
+// End Class ULightAwarenessComponent Function GetLightStatusDeferred
+
 // Begin Class ULightAwarenessComponent Function GetRenderingState
 struct Z_Construct_UFunction_ULightAwarenessComponent_GetRenderingState_Statics
 {
@@ -350,6 +484,35 @@ DEFINE_FUNCTION(ULightAwarenessComponent::execHideLightDetector)
 }
 // End Class ULightAwarenessComponent Function HideLightDetector
 
+// Begin Class ULightAwarenessComponent Function ProcessBufferDeferred
+struct Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULightAwarenessComponent, nullptr, "ProcessBufferDeferred", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred_Statics::Function_MetaDataParams), Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ULightAwarenessComponent::execProcessBufferDeferred)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ProcessBufferDeferred();
+	P_NATIVE_END;
+}
+// End Class ULightAwarenessComponent Function ProcessBufferDeferred
+
 // Begin Class ULightAwarenessComponent Function SetLightSensitivity
 struct Z_Construct_UFunction_ULightAwarenessComponent_SetLightSensitivity_Statics
 {
@@ -360,8 +523,14 @@ struct Z_Construct_UFunction_ULightAwarenessComponent_SetLightSensitivity_Static
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Light Awareness" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** How many pixels should be searched for. Generally low or optimised setting will work for many */" },
+#endif
 		{ "DisplayName", "Set Light Sensivity" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "How many pixels should be searched for. Generally low or optimised setting will work for many" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Sensitivity_Underlying;
@@ -436,8 +605,10 @@ void ULightAwarenessComponent::StaticRegisterNativesULightAwarenessComponent()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetBufferPixels", &ULightAwarenessComponent::execGetBufferPixels },
 		{ "GetLightStatus", &ULightAwarenessComponent::execGetLightStatus },
+		{ "GetLightStatusDeferred", &ULightAwarenessComponent::execGetLightStatusDeferred },
 		{ "GetRenderingState", &ULightAwarenessComponent::execGetRenderingState },
 		{ "HideLightDetector", &ULightAwarenessComponent::execHideLightDetector },
+		{ "ProcessBufferDeferred", &ULightAwarenessComponent::execProcessBufferDeferred },
 		{ "SetLightSensitivity", &ULightAwarenessComponent::execSetLightSensitivity },
 		{ "ShowLightDetector", &ULightAwarenessComponent::execShowLightDetector },
 	};
@@ -457,6 +628,11 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 		{ "ClassGroupNames", "Custom" },
 		{ "IncludePath", "LightAwarenessComponent.h" },
 		{ "IsBlueprintBase", "true" },
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnLightAwarenessComponentUpdated_MetaData[] = {
+		{ "Category", "Light Awareness - Events" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessDetectorScale_MetaData[] = {
@@ -479,13 +655,36 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessSensitivity_MetaData[] = {
 		{ "Category", "Light Awareness" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** How many pixels should be searched for. Generally low or optimised setting will work for many */" },
+#endif
 		{ "DisplayName", "Light Detection Sensivity" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "How many pixels should be searched for. Generally low or optimised setting will work for many" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessMethod_MetaData[] = {
 		{ "Category", "Light Awareness" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** In Many cases the light from top directional should be enough, however if you are closely using GI to gameplay mechanics can be used both */" },
+#endif
+		{ "DisplayName", "Light Detection Direction" },
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "In Many cases the light from top directional should be enough, however if you are closely using GI to gameplay mechanics can be used both" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessGetMethod_MetaData[] = {
+		{ "Category", "Light Awareness" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** How the component should work and update light status on owner object. Distance threshold can be set below in settings or in blueprints */" },
+#endif
 		{ "DisplayName", "Light Detection Method" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "How the component should work and update light status on owner object. Distance threshold can be set below in settings or in blueprints" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessComponentState_MetaData[] = {
 		{ "BlueprintType", "true" },
@@ -500,8 +699,14 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessFallback_MetaData[] = {
 		{ "Category", "Light Awareness" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** If Engine version is less than 5.4 use it for detecting global illumination. Can be ignored if GI is not required. */" },
+#endif
 		{ "DisplayName", "Engine Version Fallback" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "If Engine version is less than 5.4 use it for detecting global illumination. Can be ignored if GI is not required." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessIsReplicatedRenderTargets_MetaData[] = {
 		{ "Category", "Light Awareness" },
@@ -512,8 +717,14 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 		{ "Category", "Light Awareness" },
 		{ "ClampMax", "1" },
 		{ "ClampMin", "0" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** In too bright environments material can be darker 0 or lighter 1, depending on situation. This effect the outcome values of light since they are multiplied with material base color*/" },
+#endif
 		{ "DisplayName", "Light Global Threshold" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "In too bright environments material can be darker 0 or lighter 1, depending on situation. This effect the outcome values of light since they are multiplied with material base color" },
+#endif
 		{ "UIMax", "1" },
 		{ "UIMin", "0" },
 	};
@@ -553,24 +764,37 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessTagPrefix_MetaData[] = {
 		{ "Category", "Light Awareness - Variables" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Scene Capture Component\n" },
+		{ "Comment", "/** Owner Actor will have tags starting with this prefix and object name as suffix */" },
 #endif
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Scene Capture Component" },
+		{ "ToolTip", "Owner Actor will have tags starting with this prefix and object name as suffix" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RenderingCheckRate_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightUpdateStepThreshold_MetaData[] = {
+		{ "Category", "Light Awareness - Variables" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** How much difference should occur in light threshold to fire an update event, can be set to 0 for every minor change */" },
+#endif
+		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "How much difference should occur in light threshold to fire an update event, can be set to 0 for every minor change" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DistanceDeltaForUpdate_MetaData[] = {
 		{ "Category", "Light Awareness - Variables" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnLightAwarenessComponentUpdated;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_LightAwarenessDetectorScale;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_LightAwarenessDetectorOffset;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_LightAwarenessSensitivity_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_LightAwarenessSensitivity;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_LightAwarenessMethod_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_LightAwarenessMethod;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_LightAwarenessGetMethod_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_LightAwarenessGetMethod;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_LightAwarenessComponentState_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_LightAwarenessComponentState;
 	static void NewProp_LightAwarenessGI_SetBit(void* Obj);
@@ -584,15 +808,18 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_sceneCaptureComponentTop;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_sceneCaptureComponentBottom;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_LightAwarenessTagPrefix;
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_RenderingCheckRate;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_LightUpdateStepThreshold;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DistanceDeltaForUpdate;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ULightAwarenessComponent_GetBufferPixels, "GetBufferPixels" }, // 3686657332
 		{ &Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatus, "GetLightStatus" }, // 1850929438
+		{ &Z_Construct_UFunction_ULightAwarenessComponent_GetLightStatusDeferred, "GetLightStatusDeferred" }, // 350022232
 		{ &Z_Construct_UFunction_ULightAwarenessComponent_GetRenderingState, "GetRenderingState" }, // 1613511324
 		{ &Z_Construct_UFunction_ULightAwarenessComponent_HideLightDetector, "HideLightDetector" }, // 2365214700
-		{ &Z_Construct_UFunction_ULightAwarenessComponent_SetLightSensitivity, "SetLightSensitivity" }, // 3368827171
+		{ &Z_Construct_UFunction_ULightAwarenessComponent_ProcessBufferDeferred, "ProcessBufferDeferred" }, // 2942578145
+		{ &Z_Construct_UFunction_ULightAwarenessComponent_SetLightSensitivity, "SetLightSensitivity" }, // 390246078
 		{ &Z_Construct_UFunction_ULightAwarenessComponent_ShowLightDetector, "ShowLightDetector" }, // 1602442774
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -601,12 +828,15 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_OnLightAwarenessComponentUpdated = { "OnLightAwarenessComponentUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, OnLightAwarenessComponentUpdated), Z_Construct_UDelegateFunction_LightAwareness_OnLightAwarenessComponentUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnLightAwarenessComponentUpdated_MetaData), NewProp_OnLightAwarenessComponentUpdated_MetaData) }; // 3492095575
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessDetectorScale = { "LightAwarenessDetectorScale", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessDetectorScale), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessDetectorScale_MetaData), NewProp_LightAwarenessDetectorScale_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessDetectorOffset = { "LightAwarenessDetectorOffset", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessDetectorOffset), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessDetectorOffset_MetaData), NewProp_LightAwarenessDetectorOffset_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessSensitivity_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessSensitivity = { "LightAwarenessSensitivity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessSensitivity), Z_Construct_UEnum_LightAwareness_ELightAwarenessSensitivity, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessSensitivity_MetaData), NewProp_LightAwarenessSensitivity_MetaData) }; // 3282282239
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessMethod_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessMethod = { "LightAwarenessMethod", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessMethod), Z_Construct_UEnum_LightAwareness_ELightAwarenessDetectionMethod, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessMethod_MetaData), NewProp_LightAwarenessMethod_MetaData) }; // 173715605
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGetMethod_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGetMethod = { "LightAwarenessGetMethod", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessGetMethod), Z_Construct_UEnum_LightAwareness_ELightAwarenessGetMethod, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessGetMethod_MetaData), NewProp_LightAwarenessGetMethod_MetaData) }; // 1733800323
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessComponentState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessComponentState = { "LightAwarenessComponentState", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessComponentState), Z_Construct_UEnum_LightAwareness_ELightAwarenessState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessComponentState_MetaData), NewProp_LightAwarenessComponentState_MetaData) }; // 3858684123
 void Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGI_SetBit(void* Obj)
@@ -629,14 +859,18 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULightAwarenes
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_sceneCaptureComponentTop = { "sceneCaptureComponentTop", nullptr, (EPropertyFlags)0x00200800000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, sceneCaptureComponentTop), Z_Construct_UClass_USceneCaptureComponent2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_sceneCaptureComponentTop_MetaData), NewProp_sceneCaptureComponentTop_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_sceneCaptureComponentBottom = { "sceneCaptureComponentBottom", nullptr, (EPropertyFlags)0x00200800000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, sceneCaptureComponentBottom), Z_Construct_UClass_USceneCaptureComponent2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_sceneCaptureComponentBottom_MetaData), NewProp_sceneCaptureComponentBottom_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessTagPrefix = { "LightAwarenessTagPrefix", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightAwarenessTagPrefix), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightAwarenessTagPrefix_MetaData), NewProp_LightAwarenessTagPrefix_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_RenderingCheckRate = { "RenderingCheckRate", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, RenderingCheckRate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RenderingCheckRate_MetaData), NewProp_RenderingCheckRate_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightUpdateStepThreshold = { "LightUpdateStepThreshold", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, LightUpdateStepThreshold), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightUpdateStepThreshold_MetaData), NewProp_LightUpdateStepThreshold_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_DistanceDeltaForUpdate = { "DistanceDeltaForUpdate", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULightAwarenessComponent, DistanceDeltaForUpdate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DistanceDeltaForUpdate_MetaData), NewProp_DistanceDeltaForUpdate_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULightAwarenessComponent_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_OnLightAwarenessComponentUpdated,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessDetectorScale,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessDetectorOffset,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessSensitivity_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessSensitivity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessMethod_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessMethod,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGetMethod_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGetMethod,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessComponentState_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessComponentState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessGI,
@@ -647,7 +881,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULightAwa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_sceneCaptureComponentTop,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_sceneCaptureComponentBottom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightAwarenessTagPrefix,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_RenderingCheckRate,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_LightUpdateStepThreshold,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULightAwarenessComponent_Statics::NewProp_DistanceDeltaForUpdate,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULightAwarenessComponent_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ULightAwarenessComponent_Statics::DependentSingletons[])() = {
@@ -692,13 +927,14 @@ struct Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Sourc
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ ELightAwarenessSensitivity_StaticEnum, TEXT("ELightAwarenessSensitivity"), &Z_Registration_Info_UEnum_ELightAwarenessSensitivity, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3282282239U) },
 		{ ELightAwarenessDetectionMethod_StaticEnum, TEXT("ELightAwarenessDetectionMethod"), &Z_Registration_Info_UEnum_ELightAwarenessDetectionMethod, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 173715605U) },
+		{ ELightAwarenessGetMethod_StaticEnum, TEXT("ELightAwarenessGetMethod"), &Z_Registration_Info_UEnum_ELightAwarenessGetMethod, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1733800323U) },
 		{ ELightAwarenessState_StaticEnum, TEXT("ELightAwarenessState"), &Z_Registration_Info_UEnum_ELightAwarenessState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3858684123U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 3182906531U) },
+		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 2012978337U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_175900618(TEXT("/Script/LightAwareness"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_2826909359(TEXT("/Script/LightAwareness"),
 	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_Statics::EnumInfo));
