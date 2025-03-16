@@ -16,12 +16,11 @@ struct FColor;
 #endif
 #define LIGHTAWARENESS_LightAwarenessComponent_generated_h
 
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_52_DELEGATE \
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_59_DELEGATE \
 LIGHTAWARENESS_API void FOnLightAwarenessComponentUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnLightAwarenessComponentUpdated, float CurrentLightValue);
 
 
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execProcessBufferDeferred); \
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetRenderingState); \
 	DECLARE_FUNCTION(execSetLightSensitivity); \
 	DECLARE_FUNCTION(execGetBufferPixels); \
@@ -31,7 +30,7 @@ LIGHTAWARENESS_API void FOnLightAwarenessComponentUpdated_DelegateWrapper(const 
 	DECLARE_FUNCTION(execHideLightDetector);
 
 
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_INCLASS_NO_PURE_DECLS \
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesULightAwarenessComponent(); \
 	friend struct Z_Construct_UClass_ULightAwarenessComponent_Statics; \
@@ -40,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(ULightAwarenessComponent)
 
 
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_ENHANCED_CONSTRUCTORS \
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ULightAwarenessComponent(ULightAwarenessComponent&&); \
@@ -52,13 +51,13 @@ public: \
 	NO_API virtual ~ULightAwarenessComponent();
 
 
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_54_PROLOG
-#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_GENERATED_BODY \
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_61_PROLOG
+#define FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_INCLASS_NO_PURE_DECLS \
-	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_57_ENHANCED_CONSTRUCTORS \
+	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_INCLASS_NO_PURE_DECLS \
+	FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h_64_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -95,6 +94,14 @@ template<> LIGHTAWARENESS_API UEnum* StaticEnum<ELightAwarenessDetectionMethod>(
 enum class ELightAwarenessGetMethod : uint8;
 template<> struct TIsUEnumClass<ELightAwarenessGetMethod> { enum { Value = true }; };
 template<> LIGHTAWARENESS_API UEnum* StaticEnum<ELightAwarenessGetMethod>();
+
+#define FOREACH_ENUM_ELIGHTAWARENESSCALCULATIONMETHOD(op) \
+	op(ELightAwarenessCalculationMethod::Brightest) \
+	op(ELightAwarenessCalculationMethod::Average) 
+
+enum class ELightAwarenessCalculationMethod : uint8;
+template<> struct TIsUEnumClass<ELightAwarenessCalculationMethod> { enum { Value = true }; };
+template<> LIGHTAWARENESS_API UEnum* StaticEnum<ELightAwarenessCalculationMethod>();
 
 #define FOREACH_ENUM_ELIGHTAWARENESSSTATE(op) \
 	op(ELightAwarenessState::Inactive) \
