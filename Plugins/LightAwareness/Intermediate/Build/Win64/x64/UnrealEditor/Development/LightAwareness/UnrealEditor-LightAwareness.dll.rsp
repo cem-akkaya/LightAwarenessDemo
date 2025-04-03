@@ -38,6 +38,7 @@
 /NOIMPLIB
 "D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
 "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Module.LightAwareness.cpp.obj"
+"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.cpp.obj"
 "D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
