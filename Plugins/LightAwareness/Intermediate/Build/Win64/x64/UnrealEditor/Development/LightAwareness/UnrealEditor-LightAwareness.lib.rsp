@@ -6,8 +6,9 @@
 /NAME:"UnrealEditor-LightAwareness.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\LightAwarenessDemo\Intermediate\Build\Win64\x64\LightAwarenessDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
-"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Module.LightAwareness.cpp.obj"
-"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\LightAwarenessComponent.cpp.obj"
-"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\Default.rc2.res"
-/OUT:"D:\LightAwarenessDemo\Plugins\LightAwareness\Intermediate\Build\Win64\x64\UnrealEditor\Development\LightAwareness\UnrealEditor-LightAwareness.lib"
+"D:/LightAwarenessDemoFull/Intermediate/Build/Win64/x64/LightAwarenessDemoEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.InclOrderUnreal5_4.h.obj"
+"D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Module.LightAwareness.cpp.obj"
+"D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwareness.init.gen.cpp.obj"
+"D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwarenessComponent.gen.cpp.obj"
+"D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Default.rc2.res"
+/OUT:"D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/UnrealEditor-LightAwareness.lib"

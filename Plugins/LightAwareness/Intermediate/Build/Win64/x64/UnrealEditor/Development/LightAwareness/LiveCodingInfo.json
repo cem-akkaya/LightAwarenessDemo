@@ -2,13 +2,14 @@
 	"RemapUnityFiles": 
 	{
 		"Module.LightAwareness.cpp.obj": [
-			"LightAwareness.init.gen.cpp.obj",
-			"LightAwarenessComponent.gen.cpp.obj",
 			"LightAwarenessSubsystem.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
 			"LightAwareness.cpp.obj",
+			"LightAwarenessComponent.cpp.obj",
+			"LightAwarenessGpu.cpp.obj",
 			"LightAwarenessSubsystem.cpp.obj",
-			"LightAwarenessComponent.cpp.obj"
+			"LightAwareness.init.gen.cpp.obj",
+			"LightAwarenessComponent.gen.cpp.obj"
 		]
 	}
 }
