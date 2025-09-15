@@ -1,6 +1,7 @@
 ﻿// Light Awareness System. Cem Akkaya https://www.cemakkaya.com
 
 #include "LightAwarenessComponent.h"
+#include "LightAwarenessGpu.h"
 #include "GameFramework/Actor.h"
 #include "Components/SceneCaptureComponent2D.h"
 #include "Engine/TextureRenderTarget2D.h"
@@ -14,11 +15,14 @@
 #include "Kismet/KismetRenderingLibrary.h"
 #include "UObject/ConstructorHelpers.h"
 
+using namespace LightAwarenessGPU;
+
 ULightAwarenessComponent::ULightAwarenessComponent(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)
 {
 	// Component Settings
 	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bStartWithTickEnabled = true;
 	UActorComponent::SetAutoActivate(true);
 	SetIsReplicatedByDefault(false);
 	SetIsReplicated(false);
@@ -141,7 +145,7 @@ void ULightAwarenessComponent::BeginPlay()
 	SetupOwnerOtherComponents();
 	
 	// If user prefers setup new render targets that are replicated
-	if (LightAwarenessIsReplicatedRenderTargets)
+	if (LightAwarenessIsRuntimeRenderTargets)
 	{
 		// Create A New Render Target Top
 		UTextureRenderTarget2D* LARenderTargetTop = UKismetRenderingLibrary::CreateRenderTarget2D(this, 16, 16, RTF_RGBA8);
@@ -150,6 +154,10 @@ void ULightAwarenessComponent::BeginPlay()
 		// Create A New Render Target Top
 		UTextureRenderTarget2D* LARenderTargetBottom = UKismetRenderingLibrary::CreateRenderTarget2D(this, 16, 16, RTF_RGBA8);
 		sceneCaptureComponentBottom->TextureTarget = LARenderTargetBottom;
+
+		// Update Pointers to Static RT
+		LightAwarenessRenderTargetTop    = LARenderTargetTop;
+		LightAwarenessRenderTargetBottom = LARenderTargetBottom;
 	}
 	
 	// Be sure that the component visibility are set in runtime
@@ -269,7 +277,6 @@ void ULightAwarenessComponent::SetupSceneCaptureSettings(USceneCaptureComponent2
 	// Setup Scene Capture
 	sceneCaptureComponents->SetRelativeRotation(Rotation);
 	sceneCaptureComponents->SetMobility(EComponentMobility::Movable);
-	sceneCaptureComponents->bCaptureEveryFrame = false;
 	sceneCaptureComponents->SetHiddenInGame(false);
 	sceneCaptureComponents->bCaptureOnMovement = false;
 	sceneCaptureComponents->OrthoWidth = 100;
@@ -278,24 +285,46 @@ void ULightAwarenessComponent::SetupSceneCaptureSettings(USceneCaptureComponent2
 	sceneCaptureComponents->ShowOnlyComponents.Add(LightAwarenessMesh);
 	sceneCaptureComponents->bUseRayTracingIfEnabled = true;
 	sceneCaptureComponents->CompositeMode = SCCM_Overwrite;
-	sceneCaptureComponents->ShowFlags.Lighting = false;
+	sceneCaptureComponents->ShowFlags.Lighting = true;
 	sceneCaptureComponents->ShowFlags.DynamicShadows = true;
-	sceneCaptureComponents->CaptureSource = SCS_FinalColorLDR;
+	sceneCaptureComponents->CaptureSource = SCS_FinalColorHDR;
 	sceneCaptureComponents->TextureTarget = RenderTarget;
 	sceneCaptureComponents->bAlwaysPersistRenderingState = true;
 	sceneCaptureComponents->TextureTarget->SizeX = 16; // 16 Min Effective Shadow Catcher size for any condition
 	sceneCaptureComponents->TextureTarget->SizeY = 16; // 16 Min Effective Shadow Catcher size for any condition
 
+
+	// Lighting + shadows ON, everything "post" OFF
+	auto& F = sceneCaptureComponents->ShowFlags;
+	F.SetLighting(true);
+	F.SetMaterials(true);
+	F.SetGlobalIllumination(LightAwarenessGI);      
+
+	F.SetPostProcessing(false);
+	F.SetAntiAliasing(false);
+	F.SetMotionBlur(false);
+	F.SetDepthOfField(false);
+	F.SetLensFlares(false);
+	F.SetBloom(false);
+	F.SetAmbientOcclusion(false);
+	F.SetScreenSpaceReflections(false);
+	F.SetFog(false);
+	F.SetVolumetricFog(false);
+	F.SetTranslucency(false);
+	F.SetSeparateTranslucency(false);
+	F.SetEyeAdaptation(false);  
+	
 	// Enable Lumen For global illumination effects and reflections
+	// Exposure is auto however we have setting for material intensity, rather than making exposure manual use material intensity as workaround.
 	sceneCaptureComponents->PostProcessSettings.bOverride_DynamicGlobalIlluminationMethod = LightAwarenessGI;
 	sceneCaptureComponents->PostProcessSettings.DynamicGlobalIlluminationMethod = EDynamicGlobalIlluminationMethod::Lumen;
 
-	sceneCaptureComponents->bRenderInMainRenderer = true;
+	sceneCaptureComponents->bCaptureEveryFrame = false;
 	sceneCaptureComponents->bConsiderUnrenderedOpaquePixelAsFullyTranslucent = true;
 
 	// Cleanup RenderTarget
 	check(RenderTarget != nullptr);
-	sceneCaptureComponents->TextureTarget->RenderTargetFormat = RTF_RGBA8;
+	sceneCaptureComponents->TextureTarget->RenderTargetFormat = RTF_RGBA16f;
 	sceneCaptureComponents->TextureTarget->ClearColor = FColor::Black;
 	sceneCaptureComponents->TextureTarget->CompressionSettings = TC_VectorDisplacementmap;
 	sceneCaptureComponents->TextureTarget->SRGB = 0;
@@ -319,7 +348,6 @@ void ULightAwarenessComponent::SetupSceneCaptureSettings(USceneCaptureComponent2
 	sceneCaptureComponents->TextureTarget->MipGenSettings = TMGS_NoMipmaps;
 #endif
 	sceneCaptureComponents->TextureTarget->UpdateResourceImmediate();
-	
 }
 
 TArray<FColor> ULightAwarenessComponent::GetBufferPixels()
@@ -384,50 +412,78 @@ TArray<FColor> ULightAwarenessComponent::RenderBufferPixelsBottom()
 	return PixelArray ;
 }
 
-float ULightAwarenessComponent::GetLightStatus()
+void ULightAwarenessComponent::ProcessLight()
 {
-	// Get Buffer Image Refresh
-	GetBufferPixels();
 
-	//Get Channel Max Value as Brute Force Search
-
-	float LightValue = 0.f;
-	
-	if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Brightest)
+	// Kick-starts process for GPU or CPU.
+	// GPU This is done in a separate thread to avoid blocking the game thread. CPU is also kinda async but not fully.
+	// Starts the processes and if CPU uses GetBufferPixels() , on GPU sends to wrapper with avg or max EnqueueConsumeAvgIfReady(), pushes to shader pass then when readback is ready mailed back into TopMailbox/TopMailbox
+	switch (LightAwarenessProcessing)
 	{
-		for (int i = 0; i < BufferImage.Num(); i++)
-		{
-			const float Luminance = ((BufferImage[i].R + BufferImage[i].G + BufferImage[i].B) / 3 ) / 255.0f ;
-			if ( Luminance > LightValue)
-			{
-				LightValue = Luminance;
-			}
-		}	
+	case ELightAwarenessProcessing::GPU:
+		ProcessGPU();
+		break;
+	case ELightAwarenessProcessing::CPU:
+		ProcessCPU();
+		break;
+	default: break; 
 	}
-	else
-	{
-		float AverageLightValue = 0.f;
-
-		for (int i = 0; i < BufferImage.Num(); i++)
-		{
-			const float Luminance = ((BufferImage[i].R + BufferImage[i].G + BufferImage[i].B) / 3 ) / 255.0f ;
-			AverageLightValue += Luminance;
-		}
-		AverageLightValue/=BufferImage.Num();
-		LightValue = AverageLightValue;
-	}
-
-	if (abs(LastLightStatusValue - LightValue) > abs(LightUpdateStepThreshold))
-	{
-		OnLightAwarenessComponentUpdated.Broadcast(LightValue);
-		LastLightStatusValue = LightValue;
-	}	
-	
-	return LightValue;
 }
 
-void ULightAwarenessComponent::GetLightStatusDeferred()
+void ULightAwarenessComponent::ProcessGPU()
 {
+	if (!GIsRHIInitialized) return;
+	if (WarmupFramesRemaining > 0) { --WarmupFramesRemaining; return; }
+
+	// Avarage
+	if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Average)
+	{
+		// schedule on render thread
+		if (TopReadback.IsValid())
+		{
+			int32 PixelCount = sceneCaptureComponentTop && sceneCaptureComponentTop->TextureTarget
+				? sceneCaptureComponentTop->TextureTarget->SizeX * sceneCaptureComponentTop->TextureTarget->SizeY
+				: 0;
+			EnqueueConsumeAvgIfReady(TopReadback, TopMailbox, PixelCount);
+		}
+		if (BottomReadback.IsValid())
+		{
+			int32 PixelCount = sceneCaptureComponentBottom && sceneCaptureComponentBottom->TextureTarget
+				? sceneCaptureComponentBottom->TextureTarget->SizeX * sceneCaptureComponentBottom->TextureTarget->SizeY
+				: 0;
+			EnqueueConsumeAvgIfReady(BottomReadback, BottomMailbox, PixelCount);
+		}
+	}
+	else // Brightest
+	{
+		// schedule on render thread
+		if (TopReadback.IsValid())
+			EnqueueConsumeMaxIfReady(TopReadback, TopMailbox);
+
+		if (BottomReadback.IsValid())
+			EnqueueConsumeMaxIfReady(BottomReadback, BottomMailbox);
+	}
+
+	// Consume 
+	float LightValue = 0.f;
+	if (ConsumeGpuReductions(LightValue))
+	{
+		if (FMath::Abs(LastLightStatusValue - LightValue) > FMath::Abs(LightUpdateStepThreshold))
+		{
+			OnLightAwarenessComponentUpdated.Broadcast(LightValue);
+			LastLightStatusValue = LightValue;
+		}
+	}
+
+	// Enqueue next frame
+	KickGpuReductions();
+}
+
+void ULightAwarenessComponent::ProcessCPU()
+{
+	if (!GIsRHIInitialized) return;
+	if (WarmupFramesRemaining > 0) { --WarmupFramesRemaining; return; }
+	
 	// Get Buffer Image Refresh
 	GetBufferPixels();
 	
@@ -442,7 +498,8 @@ void ULightAwarenessComponent::GetLightStatusDeferred()
 			{
 				for (int32 i = 0; i < BufferImage.Num(); i++)
 				{
-					const float Luminance = ((BufferImage[i].R + BufferImage[i].G + BufferImage[i].B) / 3 ) / 255.0f;
+					float Luminance = FMath::Max3(BufferImage[i].R, BufferImage[i].G, BufferImage[i].B) / 255.0f;
+
 					if (Luminance > MaxLightValue)
 					{
 						MaxLightValue = Luminance;
@@ -452,10 +509,10 @@ void ULightAwarenessComponent::GetLightStatusDeferred()
 			else
 			{
 				float AverageLightValue = 0.f;
-
+	
 				for (int i = 0; i < BufferImage.Num(); i++)
 				{
-					const float Luminance = ((BufferImage[i].R + BufferImage[i].G + BufferImage[i].B) / 3 ) / 255.0f ;
+					float Luminance = FMath::Max3(BufferImage[i].R, BufferImage[i].G, BufferImage[i].B) / 255.0f;
 					AverageLightValue += Luminance;
 				}
 				AverageLightValue/=BufferImage.Num();
@@ -475,9 +532,120 @@ void ULightAwarenessComponent::GetLightStatusDeferred()
 	}
 }
 
+void ULightAwarenessComponent::KickGpuReductions()
+{
+	switch (LightAwarenessMethod)
+	{
+	case ELightAwarenessDetectionMethod::Top:
+		if (sceneCaptureComponentTop && sceneCaptureComponentTop->TextureTarget)
+		{
+			if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Average)
+			{
+				EnqueueAvgLuminanceReduce(sceneCaptureComponentTop->TextureTarget, TopReadback);
+			}
+			else
+			{
+				EnqueueMaxLuminanceReduce(sceneCaptureComponentTop->TextureTarget, TopReadback);
+			}
+			sceneCaptureComponentTop->CaptureSceneDeferred();
+		}
+		break;
+
+	case ELightAwarenessDetectionMethod::Bottom:
+		if (sceneCaptureComponentBottom && sceneCaptureComponentBottom->TextureTarget)
+		{
+			if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Average)
+			{
+				EnqueueAvgLuminanceReduce(sceneCaptureComponentBottom->TextureTarget, BottomReadback);
+			}
+			else
+			{
+				EnqueueMaxLuminanceReduce(sceneCaptureComponentBottom->TextureTarget, BottomReadback);
+			}
+			sceneCaptureComponentBottom->CaptureSceneDeferred();
+		}
+		break;
+
+	case ELightAwarenessDetectionMethod::Both:
+		if (sceneCaptureComponentTop && sceneCaptureComponentTop->TextureTarget)
+		{
+			if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Average)
+			{
+				EnqueueAvgLuminanceReduce(sceneCaptureComponentTop->TextureTarget, TopReadback);
+			}
+			else
+			{
+				EnqueueMaxLuminanceReduce(sceneCaptureComponentTop->TextureTarget, TopReadback);
+			}
+			sceneCaptureComponentTop->CaptureSceneDeferred();
+		}
+		if (sceneCaptureComponentBottom && sceneCaptureComponentBottom->TextureTarget)
+		{
+			if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Average)
+			{
+				EnqueueAvgLuminanceReduce(sceneCaptureComponentBottom->TextureTarget, BottomReadback);
+			}
+			else
+			{
+				EnqueueMaxLuminanceReduce(sceneCaptureComponentBottom->TextureTarget, BottomReadback);
+			}
+			sceneCaptureComponentBottom->CaptureSceneDeferred();
+		}
+		break;
+	}
+}
+
+// Poll readbacks
+bool ULightAwarenessComponent::ConsumeGpuReductions(float& OutLightValue)
+{
+	bool bGotTop = false, bGotBottom = false;
+	float LTop = 0.f, LBottom = 0.f;
+
+	// mailbox check (non-blocking)
+	const int32 TopEpoch = TopMailbox.Epoch.Load();
+	if (TopEpoch != TopEpochSeen)
+	{
+		TopEpochSeen = TopEpoch;
+		const uint32 Bits = TopMailbox.Bits.Load();
+		LTop = *reinterpret_cast<const float*>(&Bits);
+		bGotTop = true;
+	}
+
+	const int32 BottomEpoch = BottomMailbox.Epoch.Load();
+	if (BottomEpoch != BottomEpochSeen)
+	{
+		BottomEpochSeen = BottomEpoch;
+		const uint32 Bits = BottomMailbox.Bits.Load();
+		LBottom = *reinterpret_cast<const float*>(&Bits);
+		bGotBottom = true;
+	}
+
+	if (!bGotTop && !bGotBottom)
+		return false;
+
+	// ---- Calculation driven by method ----
+	if (LightAwarenessCalculationMethod == ELightAwarenessCalculationMethod::Brightest)
+	{
+		float Brightest = 0.f;
+		if (bGotTop)    Brightest = FMath::Max(Brightest, LTop);
+		if (bGotBottom) Brightest = FMath::Max(Brightest, LBottom);
+		OutLightValue = Brightest;
+	}
+	else // Average
+	{
+		float Sum   = 0.f;
+		int   Count = 0;
+		if (bGotTop)    { Sum += LTop;    ++Count; }
+		if (bGotBottom) { Sum += LBottom; ++Count; }
+		OutLightValue = (Count > 0) ? (Sum / Count) : 0.f;
+	}
+
+	return true;
+}
+
 void ULightAwarenessComponent::SetLightSensitivity(ELightAwarenessSensitivity Sensitivity)
 {
-	switch (LightAwarenessSensitivity)
+	switch (Sensitivity)
 	{
 	case ELightAwarenessSensitivity::Optimized:
 		RenderWidth = RenderHeight = 8; // 64 Pixels Buffer Array
@@ -565,7 +733,7 @@ void ULightAwarenessComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 		auto CurrentDistanceDelta = UKismetMathLibrary::Abs(UKismetMathLibrary::Vector_Distance2D(CurrentOwnerLocation, LastUpdateWorldPosition));
 		if (CurrentDistanceDelta > abs(DistanceDeltaForUpdate))
 		{
-			GetLightStatusDeferred();
+			ProcessLight();
 			LastUpdateWorldPosition = CurrentOwnerLocation;
 		}
 	}
@@ -573,7 +741,7 @@ void ULightAwarenessComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 	// Method Update On Every Tick
 	if (LightAwarenessGetMethod == ELightAwarenessGetMethod::EveryFrame)
 	{
-		GetLightStatusDeferred();
+		ProcessLight();
 	}
 
 }
