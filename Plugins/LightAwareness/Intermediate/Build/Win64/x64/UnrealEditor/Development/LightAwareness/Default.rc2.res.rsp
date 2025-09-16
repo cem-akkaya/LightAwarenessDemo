@@ -87,5 +87,5 @@
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_NAME="Third Person Game Template"
 /DPROJECT_PRODUCT_IDENTIFIER=LightAwarenessDemo
-/fo "D:/LightAwarenessDemoFull/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Default.rc2.res"
+/fo "D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Default.rc2.res"
 "../Build/Windows/Resources/Default.rc2"

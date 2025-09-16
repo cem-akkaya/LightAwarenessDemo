@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "d:\\lightawarenessdemofull\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesscomponent.gen.cpp",
+        "Source": "d:\\lightawarenessdemo\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesscomponent.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "d:\\lightawarenessdemofull\\intermediate\\build\\win64\\x64\\lightawarenessdemoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.inclorderunreal5_4.h.pch",
+        "PCH": "d:\\lightawarenessdemo\\intermediate\\build\\win64\\x64\\lightawarenessdemoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.inclorderunreal5_4.h.pch",
         "Includes": [
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\lightawareness\\definitions.lightawareness.h",
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenesscomponent.h",
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenessgpu.h",
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\lightawareness\\definitions.lightawareness.h",
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenesscomponent.h",
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenessgpu.h",
             "d:\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\texturerendertarget2d.h",
             "d:\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\texturerendertarget.h",
             "d:\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\texturerendertarget.generated.h",
@@ -17,9 +17,9 @@
             "d:\\ue_5.6\\engine\\source\\runtime\\rhi\\public\\rhitransientresourceallocator.h",
             "d:\\ue_5.6\\engine\\source\\runtime\\rendercore\\public\\rendergraphparameter.h",
             "d:\\ue_5.6\\engine\\source\\runtime\\rendercore\\public\\rendergraphresources.inl",
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenesssubsystem.h",
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesssubsystem.generated.h",
-            "d:\\lightawarenessdemofull\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesscomponent.generated.h"
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\source\\lightawareness\\public\\lightawarenesssubsystem.h",
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesssubsystem.generated.h",
+            "d:\\lightawarenessdemo\\plugins\\lightawareness\\intermediate\\build\\win64\\unrealeditor\\inc\\lightawareness\\uht\\lightawarenesscomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -726,7 +726,7 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** How many pixels should be searched for? Generally low or optimized setting will work for many */" },
 #endif
-		{ "DisplayName", "lightening Sensivity" },
+		{ "DisplayName", "Lightening Sensivity" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "How many pixels should be searched for? Generally low or optimized setting will work for many" },
@@ -1105,7 +1105,7 @@ ULightAwarenessComponent::~ULightAwarenessComponent() {}
 // ********** End Class ULightAwarenessComponent ***************************************************
 
 // ********** Begin Registration *******************************************************************
-struct Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics
+struct Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ ELightAwarenessSensitivity_StaticEnum, TEXT("ELightAwarenessSensitivity"), &Z_Registration_Info_UEnum_ELightAwarenessSensitivity, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3282282239U) },
@@ -1116,13 +1116,13 @@ struct Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_S
 		{ ELightAwarenessState_StaticEnum, TEXT("ELightAwarenessState"), &Z_Registration_Info_UEnum_ELightAwarenessState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3858684123U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 4027143079U) },
+		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 110909477U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_306445883(TEXT("/Script/LightAwareness"),
-	Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_102559183(TEXT("/Script/LightAwareness"),
+	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemoFull_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::EnumInfo));
 // ********** End Registration *********************************************************************
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
