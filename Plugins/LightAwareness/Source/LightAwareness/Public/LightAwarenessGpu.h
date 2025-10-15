@@ -9,6 +9,8 @@
 #include "ShaderParameterStruct.h"
 #include "RenderGraphResources.h"
 
+class FRHIGPUBufferReadback;
+
 struct FLumaMailbox
 {
 	TAtomic<uint32> Bits{0};
