@@ -1,4 +1,4 @@
-#  Light Awareness Plugin - Demo Project UE5
+#  Light Awareness Plugin - Demo Project (UE5.7)
 
 <img src="https://cemakkaya.com/ImageHost/splash.jpg" alt="plugin-light-awareness" width="100%"/>
 
