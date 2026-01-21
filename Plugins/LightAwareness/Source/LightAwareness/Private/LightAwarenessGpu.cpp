@@ -11,8 +11,8 @@
 #include "RenderGraphUtils.h"
 #include "ShaderParameterStruct.h"
 #include "GlobalShader.h"
+#include "RHIGPUReadback.h" 
 #include "ShaderParameterUtils.h"
-#include "RHIGPUReadback.h"
 
 IMPLEMENT_GLOBAL_SHADER(FLightMaxLumaCS, "/Plugin/LightAwareness/CS_LightMax.usf", "CSLightMax", SF_Compute);
 IMPLEMENT_GLOBAL_SHADER(FLightAvgLumaCS, "/Plugin/LightAwareness/CS_LightAvg.usf", "CSLightAvg", SF_Compute);

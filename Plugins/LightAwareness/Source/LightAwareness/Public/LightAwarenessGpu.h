@@ -5,13 +5,10 @@
 
 #include "CoreMinimal.h"
 #include "Engine/TextureRenderTarget2D.h"
-#include "RHI.h"
 #include "GlobalShader.h"
-#include "RHIGPUReadback.h"
+#include "RHIGPUResadback.h"
 #include "ShaderParameterStruct.h"
 #include "RenderGraphResources.h"
-
-class FRHIGPUBufferReadback;
 
 struct FLumaMailbox
 {
@@ -19,6 +16,7 @@ struct FLumaMailbox
 	TAtomic<int32>  Epoch{0}; 
 };
 
+class FRHIGPUBufferReadback;
 
 // Global compute shader wrapper Max Light
 class FLightMaxLumaCS : public FGlobalShader
