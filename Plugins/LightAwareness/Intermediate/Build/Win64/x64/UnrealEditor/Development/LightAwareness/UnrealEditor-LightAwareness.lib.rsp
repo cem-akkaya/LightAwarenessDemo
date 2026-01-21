@@ -8,9 +8,6 @@
 /NODEFAULTLIB
 "D:/LightAwarenessDemo/Intermediate/Build/Win64/x64/LightAwarenessDemoEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
 "D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Module.LightAwareness.cpp.obj"
-"D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwareness.cpp.obj"
-"D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwarenessComponent.cpp.obj"
 "D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwarenessGpu.cpp.obj"
-"D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/LightAwarenessSubsystem.cpp.obj"
 "D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/Default.rc2.res"
 /OUT:"D:/LightAwarenessDemo/Plugins/LightAwareness/Intermediate/Build/Win64/x64/UnrealEditor/Development/LightAwareness/UnrealEditor-LightAwareness.lib"

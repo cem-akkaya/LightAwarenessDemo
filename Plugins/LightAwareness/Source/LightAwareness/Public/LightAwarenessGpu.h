@@ -6,7 +6,7 @@
 #include "CoreMinimal.h"
 #include "Engine/TextureRenderTarget2D.h"
 #include "GlobalShader.h"
-#include "RHIGPUResadback.h"
+#include "RHIGPUReadback.h"
 #include "ShaderParameterStruct.h"
 #include "RenderGraphResources.h"
 
