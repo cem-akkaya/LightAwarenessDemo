@@ -829,12 +829,12 @@ struct Z_Construct_UClass_ULightAwarenessComponent_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessFallback_MetaData[] = {
 		{ "Category", "Light Awareness" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/** Fallback for unreliable orthographic shadows. If point lights bleed through walls or shadows appear missing, enable this to switch to a high-quality Perspective capture. Note: This forces the scene to render at full resolution (matching the main renderer) and is significantly more performance-intensive. Required for Global Illumination (GI) on Engine versions < 5.4. */" },
+		{ "Comment", "/** Fallback for unreliable orthographic shadows. If point lights bleed through walls or shadows appear missing, enable this to switch to a high-quality Perspective capture. Note: This mode renders the scene using a separate SceneRenderer with MainView priority but at a fraction of the player's resolution (using a divisor of 20). This ensures high-priority shadows and lighting (like Lumen GI) are calculated with high fidelity while significantly reducing the pixel workload compared to a full-resolution pass. Required for Global Illumination (GI) on Engine versions < 5.4. */" },
 #endif
 		{ "DisplayName", "Engine Version Fallback" },
 		{ "ModuleRelativePath", "Public/LightAwarenessComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Fallback for unreliable orthographic shadows. If point lights bleed through walls or shadows appear missing, enable this to switch to a high-quality Perspective capture. Note: This forces the scene to render at full resolution (matching the main renderer) and is significantly more performance-intensive. Required for Global Illumination (GI) on Engine versions < 5.4." },
+		{ "ToolTip", "Fallback for unreliable orthographic shadows. If point lights bleed through walls or shadows appear missing, enable this to switch to a high-quality Perspective capture. Note: This mode renders the scene using a separate SceneRenderer with MainView priority but at a fraction of the player's resolution (using a divisor of 20). This ensures high-priority shadows and lighting (like Lumen GI) are calculated with high fidelity while significantly reducing the pixel workload compared to a full-resolution pass. Required for Global Illumination (GI) on Engine versions < 5.4." },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightAwarenessIsRuntimeRenderTargets_MetaData[] = {
@@ -1172,10 +1172,10 @@ struct Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Sourc
 		{ ELightAwarenessState_StaticEnum, TEXT("ELightAwarenessState"), &Z_Registration_Info_UEnum_ELightAwarenessState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3805112345U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 1281227566U) },
+		{ Z_Construct_UClass_ULightAwarenessComponent, ULightAwarenessComponent::StaticClass, TEXT("ULightAwarenessComponent"), &Z_Registration_Info_UClass_ULightAwarenessComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULightAwarenessComponent), 3311593830U) },
 	};
 }; // Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_28787267{
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_4017511150{
 	TEXT("/Script/LightAwareness"),
 	Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_LightAwarenessDemo_Plugins_LightAwareness_Source_LightAwareness_Public_LightAwarenessComponent_h__Script_LightAwareness_Statics::ClassInfo),
 	nullptr, 0,

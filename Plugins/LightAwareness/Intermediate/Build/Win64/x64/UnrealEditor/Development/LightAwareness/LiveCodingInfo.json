@@ -7,8 +7,8 @@
 			"LightAwarenessSubsystem.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
 			"LightAwareness.cpp.obj",
-			"LightAwarenessSubsystem.cpp.obj",
 			"LightAwarenessComponent.cpp.obj",
+			"LightAwarenessSubsystem.cpp.obj",
 			"LightAwarenessGpu.cpp.obj"
 		]
 	}

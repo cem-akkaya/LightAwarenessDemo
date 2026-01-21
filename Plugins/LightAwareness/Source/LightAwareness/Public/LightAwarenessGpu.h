@@ -7,6 +7,7 @@
 #include "Engine/TextureRenderTarget2D.h"
 #include "RHI.h"
 #include "GlobalShader.h"
+#include "RHIGPUReadback.h"
 #include "ShaderParameterStruct.h"
 #include "RenderGraphResources.h"
 
